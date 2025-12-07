@@ -31,6 +31,30 @@ MATERIALS = {
         "shrinkage": "Low",
         "pros": ["Flexible", "Abrasion resistant", "Impact resistant"],
         "cons": ["Hard to print", "Slow print speeds", "Stringing"]
+    },
+    "NYLON": {
+        "description": "Polyamide. Extremely strong, durable, and impact resistant.",
+        "nozzle_temp": "240-260°C",
+        "bed_temp": "70-100°C",
+        "shrinkage": "High",
+        "pros": ["High strength", "High impact resistance", "Low friction"],
+        "cons": ["Absorbs moisture (hygroscopic)", "Warps easily", "Hard to print"]
+    },
+    "ASA": {
+        "description": "Acrylonitrile Styrene Acrylate. Similar to ABS but UV stable.",
+        "nozzle_temp": "230-250°C",
+        "bed_temp": "90-110°C",
+        "shrinkage": "Moderate",
+        "pros": ["UV resistant (outdoor use)", "Strong like ABS", "Less warping than ABS"],
+        "cons": ["Needs enclosure (fumes)", "Higher bed temp required"]
+    },
+    "PC": {
+        "description": "Polycarbonate. One of the strongest engineering filaments.",
+        "nozzle_temp": "250-300°C",
+        "bed_temp": "100-115°C",
+        "shrinkage": "High",
+        "pros": ["Extremely heat resistant", "Very strong", "Impact resistant"],
+        "cons": ["Very high print temps", "Warps significantly", "Expensive"]
     }
 }
 

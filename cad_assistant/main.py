@@ -8,6 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from cad_assistant import materials
 from cad_assistant import tips
 from cad_assistant import prototype_logger
+from cad_assistant import calculator
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -89,6 +90,35 @@ def show_tips_menu():
         except ValueError:
             input("Invalid input. Press Enter...")
 
+def show_calculator_menu():
+    while True:
+        clear_screen()
+        print_header()
+        print("\n--- Cost Calculator ---")
+
+        try:
+            print("Calculate material cost:")
+            weight = float(input("Enter print weight (grams): "))
+            cost_kg = float(input("Enter filament cost per kg ($): "))
+
+            basic_cost = calculator.calculate_cost(weight, cost_kg)
+            print(f"\nEstimated Material Cost: ${basic_cost:.2f}")
+
+            advanced = input("\nCalculate electricity too? (y/n): ")
+            if advanced.lower() == 'y':
+                hours = float(input("Print time (hours): "))
+                watts = float(input("Printer power (Watts, e.g. 150): "))
+                kwh_cost = float(input("Electricity cost ($/kWh, e.g. 0.12): "))
+
+                total = calculator.calculate_total_cost(weight, cost_kg, hours, watts, kwh_cost)
+                print(f"Estimated Total Cost:    ${total:.2f}")
+
+        except ValueError:
+            print("\nInvalid input, please enter numbers only.")
+
+        input("\nPress Enter to return...")
+        break
+
 def show_logger_menu():
     while True:
         clear_screen()
@@ -155,6 +185,7 @@ def main():
         print("1. Material Guide")
         print("2. Design Tips")
         print("3. Prototype Logger")
+        print("4. Cost Calculator")
         print("0. Exit")
 
         choice = input("\nSelect an option: ")
@@ -165,6 +196,8 @@ def main():
             show_tips_menu()
         elif choice == '3':
             show_logger_menu()
+        elif choice == '4':
+            show_calculator_menu()
         elif choice == '0':
             print("\nGoodbye!")
             break
