@@ -34,7 +34,17 @@ This repository currently hosts the **CAD Assistant**, a command-line interface 
 
 #### Usage
 
-Run the assistant using the following command from the root directory:
+**Graphical User Interface (Recommended):**
+
+To launch the desktop application window:
+
+```bash
+python3 cad_assistant/gui_app.py
+```
+
+**Command Line Interface:**
+
+If you prefer the terminal:
 
 ```bash
 python3 cad_assistant/main.py
