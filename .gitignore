@@ -1,0 +1,3 @@
+__pycache__/
+*.pyc
+cad_assistant/data/ideas.json
